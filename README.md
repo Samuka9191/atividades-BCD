@@ -2,6 +2,7 @@
 Material desenvolvido em sala de aula
 
 #ATIVIDADE 1
+
 ## Compra de Produtos
 
 Projeto de banco de dados em MySQL para cadastro de clientes, produtos e vendas.
