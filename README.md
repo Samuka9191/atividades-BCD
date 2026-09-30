@@ -1,7 +1,7 @@
 # atividades-BCD
 Material desenvolvido em sala de aula
 
-#ATIVIDADE 1
+# ATIVIDADE 1
 
 ## Compra de Produtos
 
