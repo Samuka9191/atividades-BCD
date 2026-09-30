@@ -1,8 +1,8 @@
 # atividades-BCD
 Material desenvolvido em sala de aula
 
-
-# Compra de Produtos
+#ATIVIDADE 1
+## Compra de Produtos
 
 Projeto de banco de dados em MySQL para cadastro de clientes, produtos e vendas.
 
@@ -125,3 +125,6 @@ DROP TABLE produto;
 
  - MySQL
 - SQL
+
+
+# ATIVIDADE 2
