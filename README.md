@@ -120,7 +120,7 @@ ADD CONSTRAINT uk_email_unico UNIQUE (email);
 ```
 DROP TABLE produto;
 ```
-
+![print 1](ativi1-bcd.drawio.png)
  ## Tecnologias
 
  - MySQL
