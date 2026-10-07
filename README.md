@@ -261,3 +261,6 @@ DROP TABLE livro;
 ````
 
 ![print 5](ativi2.drawio.png)
+![print 6](ativi2.1.png)
+![print 7](ativi2.2.png)
+![print 8](ativi3.3.png)
