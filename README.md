@@ -253,8 +253,11 @@ A restrição UNIQUE impede que dois alunos possuam o mesmo e-mail.
 
 ALTER TABLE aluno
 ADD CONSTRAINT uk_email_unico UNIQUE (email);
-![print 5](ativi2.drawio.png)
+
 15. Excluir uma Tabela
 O comando DROP TABLE exclui completamente uma tabela e seus dados.
 
 DROP TABLE livro;
+````
+
+![print 5](ativi2.drawio.png)
