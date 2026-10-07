@@ -131,3 +131,103 @@ DROP TABLE produto;
 # ATIVIDADE 2
 
 ## Sistema de Biblioteca
+
+-- Banco de Dados
+CREATE DATABASE biblioteca;
+
+USE biblioteca;
+
+-- Tabela Aluno
+CREATE TABLE aluno (
+    id_aluno INT PRIMARY KEY AUTO_INCREMENT,
+    nome_aluno VARCHAR(100),
+    email VARCHAR(100),
+    curso VARCHAR(100)
+);
+
+-- Tabela Livro
+CREATE TABLE livro (
+    id_livro INT PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR(100),
+    autor VARCHAR(100),
+    ano_publicacao INT
+);
+
+-- Tabela Emprestimo
+CREATE TABLE emprestimo (
+    id_emprestimo INT PRIMARY KEY AUTO_INCREMENT,
+    id_aluno INT NOT NULL,
+    id_livro INT NOT NULL,
+    data_emprestimo DATE,
+    data_devolucao DATE,
+
+    FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno),
+    FOREIGN KEY (id_livro) REFERENCES livro(id_livro)
+);
+
+-- Inserindo Alunos
+INSERT INTO aluno(nome_aluno, email, curso)
+VALUES ("Michael Jackson", "m.jackson@gmail.com", "Administração");
+
+INSERT INTO aluno(nome_aluno, email, curso)
+VALUES ("Loud Coringa", "l.deloude@gmail.com", "Análise e Desenvolvimento de Sistemas");
+
+INSERT INTO aluno(nome_aluno, email, curso)
+VALUES ("Peter Parker", "aranha@gmail.com", "Engenharia");
+
+SELECT * FROM aluno;
+
+-- Inserindo Livros
+INSERT INTO livro(titulo, autor, ano_publicacao)
+VALUES ("Dom Casmurro", "Machado de Assis", 1899);
+
+INSERT INTO livro(titulo, autor, ano_publicacao)
+VALUES ("O Hobbit", "J. R. R. Tolkien", 1937);
+
+INSERT INTO livro(titulo, autor, ano_publicacao)
+VALUES ("Harry Potter e a Pedra Filosofal", "J. K. Rowling", 1997);
+
+SELECT * FROM livro;
+
+-- Registrando Empréstimos
+INSERT INTO emprestimo(id_aluno, id_livro, data_emprestimo, data_devolucao)
+VALUES (1, 1, "2026-09-25", "2026-10-02");
+
+INSERT INTO emprestimo(id_aluno, id_livro, data_emprestimo, data_devolucao)
+VALUES (3, 2, "2026-09-20", "2026-09-30");
+
+INSERT INTO emprestimo(id_aluno, id_livro, data_emprestimo, data_devolucao)
+VALUES (2, 3, "2026-09-15", "2026-09-25");
+
+SELECT * FROM emprestimo;
+
+-- Alteração
+UPDATE livro
+SET titulo = "O Hobbit - Edição Especial"
+WHERE id_livro = 2;
+
+SELECT * FROM livro;
+
+-- Chaves Únicas
+ALTER TABLE livro
+ADD CONSTRAINT uk_titulo_unico UNIQUE (titulo);
+
+ALTER TABLE aluno
+ADD CONSTRAINT uk_email_unico UNIQUE (email);
+
+-- Consultando os empréstimos com os dados do aluno e do livro
+SELECT
+    aluno.nome_aluno,
+    aluno.curso,
+    livro.titulo,
+    livro.autor,
+    emprestimo.data_emprestimo,
+    emprestimo.data_devolucao
+FROM emprestimo
+INNER JOIN aluno
+    ON emprestimo.id_aluno = aluno.id_aluno
+INNER JOIN livro
+    ON emprestimo.id_livro = livro.id_livro;
+
+-- Deletar uma tabela
+DROP TABLE livro;
