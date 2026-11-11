@@ -1,0 +1,26 @@
+1-SELECT * FROM produto WHERE nome_produto LIKE "D%";
+
+2-SELECT nome_produto, estoque, marca FROM produto WHERE marca LIKE "%E";
+
+3-SELECT nome_produto, preco_unitario, marca FROM produto WHERE nome_produto LIKE "%Gamer%";
+
+4-SELECT * FROM cliente WHERE nome_cliente LIKE "%Barbosa%";
+
+5-SELECT cliente.nome_cliente, venda.data_venda, produto.preco_unitario, venda.forma_pagamento
+FROM cliente, produto, venda WHERE nome_cliente LIKE "C%";
+
+6-SELECT nome_produto, preco_unitario, id_venda, forma_pagamento
+FROM produto
+INNER JOIN venda ON produto.id_produto = venda.id_produto
+WHERE (forma_pagamento = "PIX" OR forma_pagamento = "Boleto")
+AND nome_produto LIKE "%Polegada%";
+
+7-SELECT nome_produto, nome_cliente, desconto_percentual, forma_pagamento
+FROM produto
+INNER JOIN venda ON produto.id_produto = venda.id_produto
+INNER JOIN cliente ON venda.id_cliente = cliente.id_cliente
+WHERE nome_produto LIKE "%Placa%"
+   OR nome_produto LIKE "%Notebook%"
+   OR nome_cliente LIKE "%Ana%"
+ORDER BY desconto_percentual ASC,
+         forma_pagamento ASC;
